@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        #bookOutput {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 15px 0;
+        }
+
+        strong {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Information</h1>
+    <div id="bookOutput"></div>
+
+    <script>
+        // Corrected book data
+        const bookData = {
+            "Books": [
+                {
+                    "Title": "The Great Gatsby",
+                    "Author": "F. Scott Fitzgerald",
+                    "PublicationYear": 1925,
+                    "Genres": ["Fiction", "Classics"]
+                },
+                {
+                    "Title": "To Kill a Mockingbird",
+                    "Author": "Harper Lee",
+                    "PublicationYear": 1960,
+                    "Genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        const bookOutput = document.getElementById("bookOutput");
+
+        // Display book data on the webpage
+        bookData.Books.forEach(book => {
+            const bookInfo = `
+                <p><strong>Title:</strong> ${book.Title}</p>
+                <p><strong>Author:</strong> ${book.Author}</p>
+                <p><strong>Publication Year:</strong> ${book.PublicationYear}</p>
+                <p><strong>Genres:</strong> ${book.Genres.join(", ")}</p>
+                <hr>
+            `;
+            bookOutput.innerHTML += bookInfo;
+        });
+
+        // Log genres to the console
+        bookData.Books.forEach(book => {
+            console.log(book.Genres);
+        });
+    </script>
+</body>
+</html>
